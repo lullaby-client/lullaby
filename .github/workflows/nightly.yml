@@ -1,0 +1,95 @@
+name: Nightly Release
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'
+
+jobs:
+  build-windows:
+    name: Build on Windows with zig ${{ matrix.zig }}
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        zig: [latest, master, 0.16.0-dev.233+a0ec4e270]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@v2
+        with:
+          zig-version: ${{ matrix.zig }}
+
+      - name: Verify Zig
+        shell: pwsh
+        run: |
+          zig version
+
+      - name: Build (zig build)
+        shell: pwsh
+        run: |
+          zig build
+
+      - name: Show build output dir
+        shell: pwsh
+        run: |
+          if (Test-Path -Path "zig-out\bin") {
+            Get-ChildItem -Path zig-out\bin -Force
+          } else {
+            Write-Host "zig-out\\bin not found"
+          }
+
+      - name: Check for build artifacts and set outputs
+        id: check
+        shell: pwsh
+        run: |
+          $dll = Test-Path -Path "zig-out\bin\lullaby.dll"
+          $pdb = Test-Path -Path "zig-out\bin\lullaby.pdb"
+          echo "has_dll=$dll" >> $env:GITHUB_OUTPUT
+          echo "has_pdb=$pdb" >> $env:GITHUB_OUTPUT
+
+      - name: Create release (or update existing) for this run
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: nightly-${{ matrix.zig }}-${{ github.run_number }}
+          release_name: Nightly (zig ${{ matrix.zig }}) - run #${{ github.run_number }}
+          body: |
+            Nightly build for zig ${{ matrix.zig }} (GitHub Actions run ${{ github.run_id }})
+            Commit: ${{ github.sha }}
+            Run: ${{ github.run_number }}
+          draft: false
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload lullaby.dll to release (if present)
+        if: steps.check.outputs.has_dll == 'true'
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: zig-out\bin\lullaby.dll
+          asset_name: lullaby-${{ matrix.zig }}.dll
+          asset_content_type: application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload lullaby.pdb to release (if present)
+        if: steps.check.outputs.has_pdb == 'true'
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: zig-out\bin\lullaby.pdb
+          asset_name: lullaby-${{ matrix.zig }}.pdb
+          asset_content_type: application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
