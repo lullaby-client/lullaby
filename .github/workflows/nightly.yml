@@ -6,8 +6,6 @@ permissions:
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
   schedule:
     - cron: '0 2 * * *'
@@ -27,7 +25,9 @@ jobs:
       - name: Setup Zig
         uses: mlugg/setup-zig@v2
         with:
-          zig-version: ${{ matrix.zig }}
+          version: ${{ matrix.zig }}
+          use-cache: true
+          cache-key: setup-zig-${{ matrix.zig }}-${{ hashFiles('build.zig') }}
 
       - name: Verify Zig
         shell: pwsh
@@ -62,7 +62,7 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: nightly-${{ matrix.zig }}-${{ github.run_number }}
-          release_name: Nightly (zig ${{ matrix.zig }}) - run #${{ github.run_number }}
+          release_name: Nightly (zig ${{ matrix.zig }})
           body: |
             Nightly build for zig ${{ matrix.zig }} (GitHub Actions run ${{ github.run_id }})
             Commit: ${{ github.sha }}
