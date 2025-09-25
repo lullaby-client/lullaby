@@ -11,7 +11,7 @@ Modern multi-version Minecraft ghost client
 
 ## License
 
-<a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">
+<a href="https://www.gnu.org/licenses/gpl-3.0.txt">
   <img align="right" height="72" alt="GPLv3 License" src="./extern/GPLv3_Logo.svg" />
 </a>
 
