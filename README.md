@@ -1,13 +1,17 @@
-<a href="https://github.com/lullaby-client">
-  <img align="right" height="24" alt="GPLv3 License" src="https://raw.githubusercontent.com/lullaby-client/assets/refs/heads/main/Lullaby%20Banner.svg" />
-</a>
-
 ## Lullaby
+
+<a href="https://github.com/lullaby-client">
+  <img align="right" height="64" alt="GPLv3 License" src="https://raw.githubusercontent.com/lullaby-client/assets/refs/heads/main/Lullaby%20Banner.svg" />
+</a>
 
 Modern multi-version Minecraft ghost client
 
 > [!IMPORTANT]  
 > Lullaby is not finished, and is **BETA** software.
+
+## Usage
+
+TODO
 
 ## License
 
