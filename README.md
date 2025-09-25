@@ -1,5 +1,5 @@
 <a href="https://github.com/lullaby-client">
-  <img align="right" height="32" alt="GPLv3 License" src="https://raw.githubusercontent.com/lullaby-client/assets/refs/heads/main/Lullaby%20Banner.svg" />
+  <img align="right" height="24" alt="GPLv3 License" src="https://raw.githubusercontent.com/lullaby-client/assets/refs/heads/main/Lullaby%20Banner.svg" />
 </a>
 
 ## Lullaby
