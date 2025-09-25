@@ -1,6 +1,6 @@
-<p align="right">
-  <img src="https://raw.githubusercontent.com/lullaby-client/assets/refs/heads/main/Lullaby%20Banner.svg" width="256" />
-</p>
+<a href="https://github.com/lullaby-client">
+  <img align="right" height="32" alt="GPLv3 License" src="https://raw.githubusercontent.com/lullaby-client/assets/refs/heads/main/Lullaby%20Banner.svg" />
+</a>
 
 ## Lullaby
 
@@ -11,9 +11,9 @@ Modern multi-version Minecraft ghost client
 
 ## License
 
-<p align="right">
-  <img src="./extern/GPLv3_Logo.svg" width="172" />
-</p>
+<a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">
+  <img align="right" height="72" alt="GPLv3 License" src="./extern/GPLv3_Logo.svg" />
+</a>
 
 The Lullaby Client is licensed under the **GNU General Public License v3.0 or later**.
 
