@@ -10,6 +10,14 @@
             .url = "https://github.com/SuperIceCN/zig-jni/archive/27570fdfb5706e7d9cb0206ddd1600e66411ad87.zip",
             .hash = "jni-0.0.1-qf3mHEoJBADgTJirCPl6I65kKz6-PBwsV7PgN_EX6AQy",
         },
+        .httpz = .{
+            .url = "git+https://github.com/karlseguin/http.zig?ref=master#00014146eaf9e17750b752fa4905f7623fbe30f7",
+            .hash = "httpz-0.0.0-PNVzrFndBgDr9zQx7Mj_MFiqYslgcRlx45FJ_gERmRTb",
+        },
+        .websocket = .{
+            .url = "git+https://github.com/karlseguin/websocket.zig?ref=master#2d9ae9b0905c4f902dafabb073ebd54065e839b4",
+            .hash = "websocket-0.1.0-ZPISdbxyAwB8d7my8K95rTDLQjbnw9LEycVFA5QjbW5t",
+        },
     },
     .minimum_zig_version = "0.16.0-dev.233+a0ec4e270",
     .paths = .{""},

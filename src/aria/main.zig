@@ -1,5 +1,5 @@
 const std = @import("std");
-const base = @import("base.zig");
+const main = @import("thread.zig");
 const windows = @import("win32").everything;
 
 pub fn DllMain(
@@ -10,7 +10,7 @@ pub fn DllMain(
     switch (fdw_reason) {
         windows.DLL_PROCESS_ATTACH => {
             _ = windows.DisableThreadLibraryCalls(@ptrCast(@alignCast(h_module)));
-            return base.startThread(@ptrCast(h_module)) catch {
+            return main.startThread(@ptrCast(h_module)) catch {
                 return 0;
             };
         },

@@ -1,9 +1,11 @@
 const std = @import("std");
+const webui = @import("web.zig");
 const jni = @import("JNI");
 const cjni = @import("JNI").cjni;
 const windows = @import("win32").everything;
 
 var main_thread: std.Thread = undefined;
+var web_thread: std.Thread = undefined;
 var g_hModule: ?std.os.windows.HMODULE = null;
 
 pub var jvm: jni.JavaVM = undefined;
@@ -16,7 +18,7 @@ pub fn startThread(h_module: std.os.windows.HMODULE) !u8 {
 }
 
 fn threadMain() !void {
-    std.log.debug("lullaby is here", .{});
+    web_thread = try std.Thread.spawn(.{}, webui.threadMain, .{});
     var jvm_buffer: [1][*c]cjni.JavaVM = undefined;
     var vm_count: cjni.jint = 0;
 
@@ -37,6 +39,7 @@ fn threadMain() !void {
     while (windows.GetAsyncKeyState(0x23) == 0) {}
 
     try jvm.detachCurrentThread();
+    web_thread.join();
 
     if (g_hModule != null) {
         windows.FreeLibraryAndExitThread(@ptrCast(g_hModule.?), 0);
