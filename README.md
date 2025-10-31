@@ -9,6 +9,16 @@ Modern multi-version Minecraft ghost client
 > [!IMPORTANT]  
 > Lullaby is not finished, and is **BETA** software.
 
+#### Whats done?
+
+Check the [TODO.md](TODO.md) file for a list of what is done and what is not.
+
+## About screenshare bypassing
+
+Lullaby does not and will never bypass screenshares. This is a deliberate design choice and will not change.
+
+We want to focus on making the client as good as possible rather than spending time bypassing screenshares, especially since such methods can be patched easily and our code is open source.
+
 ## Usage
 
 TODO
