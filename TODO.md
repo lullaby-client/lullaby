@@ -20,19 +20,11 @@
 - [ ] forge client
 - [ ] neoforge client
 
-### Web UI
-
-- [ ] Frontend
-    - [ ] Module list
-    - [ ] Config system
-    - [ ] HUD editor
-    - [ ] Script editor
-- [ ] Backend
-    - [ ] API
-    - [ ] Database
-
 ### Client
 
 - [ ] Module system
 - [ ] Scripting API (lua or luau?)
 - [ ] HUD system (customizable)
+- [ ] Config system
+- [ ] Click GUI
+- [ ] Script editor

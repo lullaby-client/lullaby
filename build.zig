@@ -7,9 +7,6 @@ pub fn build(b: *std.Build) void {
     const dep_JNI = b.dependency("jni", .{}).module("JNI");
     const dep_Win32 = b.dependency("win32", .{}).module("win32");
 
-    const dep_HTTPz = b.dependency("httpz", .{});
-    const dep_WSz = b.dependency("websocket", .{});
-
     const tool = b.addExecutable(.{
         .name = "translation_gen",
         .root_module = b.createModule(.{
@@ -44,8 +41,6 @@ pub fn build(b: *std.Build) void {
     aria.linkSystemLibrary("minhook");
     aria.root_module.addImport("JNI", dep_JNI);
     aria.root_module.addImport("win32", dep_Win32);
-    aria.root_module.addImport("httpz", dep_HTTPz.module("httpz"));
-    aria.root_module.addImport("websocket", dep_WSz.module("websocket"));
     b.installArtifact(aria);
 
     const lullaby = b.addExecutable(.{
