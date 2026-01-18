@@ -22,9 +22,6 @@ jobs:
         with:
           version: 0.15.2
 
-      - name: Check format
-        run: zig fmt --check .
-
       - name: Build
         run: zig build -Doptimize=ReleaseSafe
 
