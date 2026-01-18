@@ -1,0 +1,23 @@
+install
++- install lullaby
+   +- compile lib lullaby ReleaseSafe x86_64-windows 1 errors
+src\lullaby.zig:55:21: error: root source file struct 'time' has no member named 'sleep'
+            std.time.sleep(50 * std.time.ns_per_ms);
+            ~~~~~~~~^~~~~~
+C:\Users\Nulm\AppData\Roaming\Antigravity\User\globalStorage\ziglang.vscode-zig\zig\x86_64-windows-0.15.2\lib\std\time.zig:1:1: note: struct declared here
+const std = @import("std.zig");
+^~~~~
+referenced by:
+    threadMain: src\lullaby.zig:68:17
+    callFn__anon_3893: C:\Users\Nulm\AppData\Roaming\Antigravity\User\globalStorage\ziglang.vscode-zig\zig\x86_64-windows-0.15.2\lib\std\Thread.zig:509:13
+    8 reference(s) hidden; use '-freference-trace=10' to see all references
+error: the following command failed with 1 compilation errors:
+"C:\\Users\\Nulm\\AppData\\Roaming\\Antigravity\\User\\globalStorage\\ziglang.vscode-zig\\zig\\x86_64-windows-0.15.2\\zig.exe" build-lib "C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\N-V-__8AAMzvGBK7HPhognpMDIVEkov8BMEXwbCCzyow9hax\\lib\\JVM.lib" -OReleaseSafe -target x86_64-windows -mcpu baseline --dep JNI --dep http --dep win32 --dep websocket --dep luau "-Mroot=C:\\Users\\Nulm\\source\\repos\\lullaby\\src\\main.zig" -OReleaseSafe --dep cjni "-MJNI=C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\jni-0.0.1-qf3mHEoJBADgTJirCPl6I65kKz6-PBwsV7PgN_EX6AQy\\src\\main\\zig\\lib.zig" -OReleaseSafe --dep metrics --dep websocket=websocket0 --dep build "-Mhttp=C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\httpz-0.0.0-PNVzrIowBwAFr_kqBN1W4KBMC2Ofutasj2ZfNAIcfTzF\\src\\httpz.zig" "-Mwin32=C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\zigwin32-25.0.28-preview-AAAAANd_5APbcon3QqoYfLKnJ13fiBGJSGq9YrVZsfI-\\win32.zig" -OReleaseSafe --dep build=build0 "-Mwebsocket=C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\websocket-0.1.0-ZPISdRNzAwAGszh62EpRtoQxu8wb1MSMVI6Ow0o2dmyJ\\src\\websocket.zig" ".zig-cache\\o\\2e456454d07bc68392fe12660a237976\\luau.lib" -I "C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\N-V-__8AAFB1kwDHb7dLmDsOv91rOkqorfDB_2nJtqnp4F-b\\Common\\include" -I "C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\N-V-__8AAFB1kwDHb7dLmDsOv91rOkqorfDB_2nJtqnp4F-b\\Compiler\\include" -I "C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\N-V-__8AAFB1kwDHb7dLmDsOv91rOkqorfDB_2nJtqnp4F-b\\Ast\\include" -I "C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\N-V-__8AAFB1kwDHb7dLmDsOv91rOkqorfDB_2nJtqnp4F-b\\VM\\include" -I ".zig-cache\\o\\fc14f47b06b269e74e7a4b7935934a00" -DLUA_VECTOR_SIZE=3 --dep config --dep c "-Mluau=C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\zlua-0.1.0-hGRpCww-BQCx3cX6zbKWfTgOx6B7Peo4P17RK2hm7-xV\\src\\lib.zig" -OReleaseSafe "-Mcjni=.zig-cache\\o\\158ded9055d71abdee54028dedcde096\\jni.zig" -OReleaseSafe "-Mmetrics=C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\metrics-0.0.0-W7G4eP2_AQAdJGKMonHeZFaY4oU4ZXPFFTqFCFXItX3O\\src\\metrics.zig" -OReleaseSafe --dep build=build1 "-Mwebsocket0=C:\\Users\\Nulm\\AppData\\Local\\zig\\p\\websocket-0.1.0-ZPISdZJxAwAt6Ys_JpoHQQV3NpWCof_N9Jg-Ul2g7OoV\\src\\websocket.zig" "-Mbuild=.zig-cache\\c\\c8d85127ed6414d988f389d6a7956048\\options.zig" "-Mbuild0=.zig-cache\\c\\9df3ebb56e512146581134c82a20886e\\options.zig" "-Mconfig=.zig-cache\\c\\61dfe967e136e88b9ffc86d5425e5363\\options.zig" -OReleaseSafe -target x86_64-windows -mcpu baseline "-Mc=.zig-cache\\o\\4617accce7206078acbcfcf57ae8c8f0\\luau_all.zig" "-Mbuild1=.zig-cache\\c\\9df3ebb56e512146581134c82a20886e\\options.zig" -lc++ -lc -femit-implib --cache-dir .zig-cache --global-cache-dir "C:\\Users\\Nulm\\AppData\\Local\\zig" --name lullaby -dynamic --zig-lib-dir "C:\\Users\\Nulm\\AppData\\Roaming\\Antigravity\\User\\globalStorage\\ziglang.vscode-zig\\zig\\x86_64-windows-0.15.2\\lib\\" --listen=-
+
+Build Summary: 9/12 steps succeeded; 1 failed
+install transitive failure
++- install lullaby transitive failure
+   +- compile lib lullaby ReleaseSafe x86_64-windows 1 errors
+
+error: the following build command failed with exit code 1:
+.zig-cache\o\a0312268fab226d6f671bf924fe24fc3\build.exe C:\Users\Nulm\AppData\Roaming\Antigravity\User\globalStorage\ziglang.vscode-zig\zig\x86_64-windows-0.15.2\zig.exe C:\Users\Nulm\AppData\Roaming\Antigravity\User\globalStorage\ziglang.vscode-zig\zig\x86_64-windows-0.15.2\lib C:\Users\Nulm\source\repos\lullaby .zig-cache C:\Users\Nulm\AppData\Local\zig --seed 0x5acb1aac -Zf7a95900351e5c22 -Doptimize=ReleaseSafe

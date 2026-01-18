@@ -1,18 +1,23 @@
 const std = @import("std");
-const main = @import("thread.zig");
-const windows = @import("win32").everything;
+const lullaby = @import("lullaby.zig");
+const win32 = @import("win32");
+const windows = win32.everything;
 
 pub fn DllMain(
-    h_module: std.os.windows.HINSTANCE,
+    handle: std.os.windows.HINSTANCE,
     fdw_reason: u32,
     _: *anyopaque,
-) callconv(.winapi) std.os.windows.BOOL {
+) callconv(.winapi) windows.BOOL {
     switch (fdw_reason) {
         windows.DLL_PROCESS_ATTACH => {
-            _ = windows.DisableThreadLibraryCalls(@ptrCast(@alignCast(h_module)));
-            return main.startThread(@ptrCast(h_module)) catch {
+            _ = windows.DisableThreadLibraryCalls(@ptrCast(@alignCast(handle)));
+
+            const thread = std.Thread.spawn(.{}, lullaby.threadMain, .{@as(std.os.windows.HMODULE, @ptrCast(handle))}) catch |err| {
+                std.log.err("Failed to spawn Lullaby thread: {}", .{err});
                 return 0;
             };
+
+            thread.detach();
         },
         windows.DLL_PROCESS_DETACH => {},
         else => {},
