@@ -12,18 +12,27 @@
 - [ ] 1.21.8
 - [ ] 1.21.10
 
-### Clients
+### Minecraft Clients
 
 - [ ] lunar client
-- [ ] vanilla client
-- [ ] fabric client
-- [ ] forge client
+- [ ] vanilla clients
+- [ ] fabric clients
+- [ ] forge clients
 
-### Client
+### Lullaby Client
 
 - [ ] Module system
 - [ ] Scripting API (luau)
 - [ ] HUD system (customizable)
 - [ ] Config system
-- [ ] Click GUI
 - [ ] Script editor
+- [ ] Websocket communication with web GUI
+
+### Lullaby Web GUI
+
+- [ ] Authentication
+- [ ] Script editor
+- [ ] Config list
+- [ ] Modules list
+- [ ] HUD editor (customizable)
+- [ ] Websocket communication with client

@@ -1,3 +1,5 @@
+[![CI](https://github.com/lullaby-client/lullaby/actions/workflows/main.yml/badge.svg)](https://github.com/lullaby-client/lullaby/actions/workflows/main.yml)
+
 ## Lullaby Client
 
 <a href="https://github.com/lullaby-client">
