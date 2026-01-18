@@ -10,8 +10,24 @@
             .url = "https://github.com/SuperIceCN/zig-jni/archive/27570fdfb5706e7d9cb0206ddd1600e66411ad87.zip",
             .hash = "jni-0.0.1-qf3mHEoJBADgTJirCPl6I65kKz6-PBwsV7PgN_EX6AQy",
         },
+        .openjdk = .{
+            .url = "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.1+8/OpenJDK25U-jdk_x64_windows_hotspot_25.0.1_8.zip",
+            .hash = "N-V-__8AAMzvGBK7HPhognpMDIVEkov8BMEXwbCCzyow9hax",
+        },
+        .httpz = .{
+            .url = "git+https://github.com/karlseguin/http.zig?ref=master#9ef2ffe8d611ff2e1081e5cf39cb4632c145c5b9",
+            .hash = "httpz-0.0.0-PNVzrIowBwAFr_kqBN1W4KBMC2Ofutasj2ZfNAIcfTzF",
+        },
+        .websocket = .{
+            .url = "git+https://github.com/karlseguin/websocket.zig.git?ref=master#91ca9c501066144fa95a52237da110812e9aa145",
+            .hash = "websocket-0.1.0-ZPISdRNzAwAGszh62EpRtoQxu8wb1MSMVI6Ow0o2dmyJ",
+        },
+        .zlua = .{
+            .url = "git+https://github.com/natecraddock/ziglua?ref=0.6.0#315b7f25efd29d9e2143d6c0ab685bb7f640450f",
+            .hash = "zlua-0.1.0-hGRpCww-BQCx3cX6zbKWfTgOx6B7Peo4P17RK2hm7-xV",
+        },
     },
-    .minimum_zig_version = "0.16.0-dev.1316+181b25ce4",
+    .minimum_zig_version = "0.15.2",
     .paths = .{""},
     .fingerprint = 0x90a0d6c08c67c0f2,
 }

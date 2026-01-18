@@ -18,12 +18,11 @@
 - [ ] vanilla client
 - [ ] fabric client
 - [ ] forge client
-- [ ] neoforge client
 
 ### Client
 
 - [ ] Module system
-- [ ] Scripting API (lua or luau?)
+- [ ] Scripting API (luau)
 - [ ] HUD system (customizable)
 - [ ] Config system
 - [ ] Click GUI
