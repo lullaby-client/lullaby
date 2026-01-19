@@ -4,11 +4,19 @@ const win32 = @import("win32");
 
 const cjni = jni.cjni;
 const windows = win32.everything;
+const ModuleSystem = @import("core/modules.zig").ModuleSystem;
+const Clock = @import("modules/clock.zig");
+
+const ActiveModules = .{
+    Clock,
+};
+const SystemType = ModuleSystem(*Lullaby, ActiveModules);
 
 pub const Lullaby = struct {
     handle: std.os.windows.HMODULE,
     jvm: jni.JavaVM,
     env: jni.JNIEnv,
+    sys: SystemType,
 
     const log = std.log.scoped(.lullaby);
 
@@ -36,10 +44,12 @@ pub const Lullaby = struct {
             .handle = handle,
             .jvm = jvm,
             .env = env,
+            .sys = SystemType.create(),
         };
     }
 
     pub fn deinit(self: *Lullaby) void {
+        self.sys.deinit(self);
         self.jvm.detachCurrentThread() catch |err| {
             log.err("Failed to detach thread from JVM: {}", .{err});
         };
@@ -49,9 +59,12 @@ pub const Lullaby = struct {
     pub fn run(self: *Lullaby) !void {
         defer self.deinit();
 
+        try self.sys.init(self);
+
         log.info("Lullaby running.", .{});
 
         while (windows.GetAsyncKeyState(@as(i32, @intFromEnum(windows.VK_END))) == 0) {
+            self.sys.tick(self);
             windows.Sleep(50);
         }
     }
