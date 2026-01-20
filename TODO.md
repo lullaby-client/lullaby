@@ -26,13 +26,13 @@
 - [ ] HUD system (customizable)
 - [ ] Config system
 - [ ] Script editor
-- [ ] Websocket communication with web GUI
+- [ ] Websocket communication with web UI
 
-### Lullaby Web GUI
+### Lullaby Web UI
 
 - [ ] Authentication
 - [ ] Script editor
 - [ ] Config list
 - [ ] Modules list
-- [ ] HUD editor (customizable)
+- [ ] HUD editor
 - [ ] Websocket communication with client
