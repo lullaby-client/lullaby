@@ -1,5 +1,5 @@
 const std = @import("std");
-const java = @import("../core/java.zig");
+const java = @import("../java.zig");
 const jni = @import("JNI");
 const cjni = jni.cjni;
 

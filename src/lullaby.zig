@@ -4,7 +4,7 @@ const win32 = @import("win32");
 
 const cjni = jni.cjni;
 const windows = win32.everything;
-const ModuleSystem = @import("core/modules.zig").ModuleSystem;
+const ModuleSystem = @import("modules.zig").ModuleSystem;
 const Clock = @import("modules/clock.zig");
 
 const ActiveModules = .{
