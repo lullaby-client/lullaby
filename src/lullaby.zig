@@ -1,6 +1,7 @@
 const std = @import("std");
 const jni = @import("JNI");
 const win32 = @import("win32");
+const utils = @import("utils.zig");
 
 const cjni = jni.cjni;
 const windows = win32.everything;
@@ -12,11 +13,20 @@ const ActiveModules = .{
 };
 const SystemType = ModuleSystem(*Lullaby, ActiveModules);
 
+pub const GameVersions = enum {
+    UNKNOWN,
+    VANILLA_1_8,
+    FORGE_1_8,
+    LUNAR_1_8,
+    FEATHER_1_8,
+};
+
 pub const Lullaby = struct {
     handle: std.os.windows.HMODULE,
     jvm: jni.JavaVM,
     env: jni.JNIEnv,
     sys: SystemType,
+    version: GameVersions,
 
     const log = std.log.scoped(.lullaby);
 
@@ -34,6 +44,18 @@ pub const Lullaby = struct {
             return error.NoJvmFound;
         }
 
+        const version = utils.getGameVersionFromWindowClass("LWJGL");
+        if (version == .UNKNOWN) {
+            log.err("Unknown game version.", .{});
+            _ = windows.MessageBoxA(
+                null,
+                "Unknown game version.\nSupported versions: Vanilla 1.8, Forge 1.8, Lunar 1.8, Feather 1.8\nMore soon...",
+                "Lullaby",
+                windows.MB_OK,
+            );
+            return error.UnknownGameVersion;
+        }
+
         var jvm = jni.JavaVM.warp(jvm_buf[0]);
         var env: jni.JNIEnv = undefined;
 
@@ -44,6 +66,7 @@ pub const Lullaby = struct {
             .handle = handle,
             .jvm = jvm,
             .env = env,
+            .version = version,
             .sys = SystemType.create(),
         };
     }
