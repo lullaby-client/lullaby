@@ -1,6 +1,6 @@
 [![CI](https://github.com/lullaby-client/lullaby/actions/workflows/main.yml/badge.svg)](https://github.com/lullaby-client/lullaby/actions/workflows/main.yml)
 
-## Lullaby Client
+## Lullaby Client v2
 
 <a href="https://github.com/lullaby-client">
   <img align="right" height="86" alt="GPLv3 License" src="https://raw.githubusercontent.com/lullaby-client/assets/refs/heads/main/Lullaby%20Banner.svg" />
@@ -10,10 +10,6 @@ Modern multi-version Minecraft ghost client
 
 > [!IMPORTANT]  
 > Lullaby is not finished, and is **BETA** software.
-
-#### Whats done?
-
-Check the [TODO.md](TODO.md) file for a list of what is done and what is not.
 
 ## About screenshare bypassing
 
